@@ -12,7 +12,7 @@ class WriCustomClipper extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Practice Clipper Design'),
-        backgroundColor: Colors.redAccent,
+        backgroundColor: Colors.amberAccent,
         centerTitle: true,
       ),
       body: Stack(
@@ -22,7 +22,7 @@ class WriCustomClipper extends StatelessWidget {
             child: ClipPath(
               clipper: WaveClipper(),
               child: Container(
-                color: Colors.deepOrangeAccent,
+                color: const Color.fromARGB(255, 250, 226, 4),
                 height: 260,
               ),
             ),
@@ -31,11 +31,11 @@ class WriCustomClipper extends StatelessWidget {
             clipper: WaveClipper(),
             child: Container(
               alignment: Alignment.center,
-              color: Colors.red,
+              color: const Color.fromARGB(255, 238, 221, 71),
               height: 230,
               child: const Text(
                 'Wave Clipper',
-                style: TextStyle(color: Colors.white, fontSize: 18),
+                style: TextStyle(color: Colors.black, fontSize: 18),
               ),
             ),
           ),
@@ -62,8 +62,10 @@ class WaveClipper extends CustomClipper<Path> {
       firstEnd.dy,
     );
 
-    final secondStart =
-        Offset(size.width - (size.width / 3.24), size.height - 105);
+    final secondStart = Offset(
+      size.width - (size.width / 3.24),
+      size.height - 105,
+    );
     final secondEnd = Offset(size.width, size.height - 10);
 
     path.quadraticBezierTo(
