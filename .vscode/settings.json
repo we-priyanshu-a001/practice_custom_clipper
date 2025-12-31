@@ -1,0 +1,37 @@
+{
+    "markdown.editor.filePaste.audioSnippet": "<audio controls src=\"${src}\" title=\"${title}\"></audio>",
+    "accessibility.signals.chatRequestSent": {
+        "sound": "off"
+    },
+    "accessibility.signals.chatResponseReceived": {
+        "sound": "off"
+    },
+    "accessibility.signals.chatEditModifiedFile": {
+        "sound": "off"
+    },
+    "accessibility.signals.chatUserActionRequired": {
+        "sound": "off"
+    },
+    "accessibility.signals.clear": {
+        "sound": "off"
+    },
+    "accessibility.signals.codeActionApplied": {
+        "sound": "off"
+    },
+    "accessibility.signals.codeActionTriggered": {
+        "sound": "off"
+    },
+    "accessibility.signals.diffLineDeleted": {
+        "sound": "off"
+    },
+    "accessibility.signals.diffLineInserted": {
+        "sound": "off"
+    },
+    "accessibility.signals.diffLineModified": {
+        "sound": "off"
+    },
+    "accessibility.signals.editsKept": {
+        "sound": "off",
+        "announcement": "off"
+    }
+}
