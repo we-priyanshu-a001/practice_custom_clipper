@@ -28,65 +28,63 @@ class WriCustomClipper extends StatelessWidget {
         backgroundColor: Colors.amberAccent,
         centerTitle: true,
       ),
-      body: BlocListener<CounterBloc, CounterState>(
-        listener: (context, state) {
-          if (state.inc == true) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text('Incremented'),
-                duration: Duration(milliseconds: 500),
-              ),
-            );
-          } else if (state.inc == false) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text('Decremented'),
-                duration: Duration(milliseconds: 500),
-              ),
-            );
-          }
-        },
-        child: Stack(
-          children: [
-            Opacity(
-              opacity: 0.5,
-              child: ClipPath(
-                clipper: WaveClipper(),
-                child: Container(
-                  color: const Color.fromARGB(255, 250, 226, 4),
-                  height: 260,
-                ),
-              ),
-            ),
-            ClipPath(
+      body: Stack(
+        children: [
+          Opacity(
+            opacity: 0.5,
+            child: ClipPath(
               clipper: WaveClipper(),
               child: Container(
-                alignment: Alignment.center,
-                color: const Color.fromARGB(255, 238, 221, 71),
-                height: 230,
-                child: Container(
-                  width: 60,
-                  height: 60,
-                  color: Colors.yellow,
-                  child: Center(
-                    child: BlocBuilder<CounterBloc, CounterState>(
-                      builder: (context, state) {
-                        return Text(
-                          state.counter.toString(),
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 25,
-                            fontWeight: FontWeight.bold,
+                color: const Color.fromARGB(255, 250, 226, 4),
+                height: 260,
+              ),
+            ),
+          ),
+          ClipPath(
+            clipper: WaveClipper(),
+            child: Container(
+              alignment: Alignment.center,
+              color: const Color.fromARGB(255, 238, 221, 71),
+              height: 230,
+              child: Container(
+                width: 60,
+                height: 60,
+                color: Colors.yellow,
+                child: Center(
+                  child: BlocConsumer<CounterBloc, CounterState>(
+                    listener: (context, state) {
+                      if (state.inc == true) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text('Incremented'),
+                            duration: Duration(milliseconds: 500),
                           ),
                         );
-                      },
-                    ),
+                      } else if (state.inc == false) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text('Decremented'),
+                            duration: Duration(milliseconds: 500),
+                          ),
+                        );
+                      }
+                    },
+                    builder: (context, state) {
+                      return Text(
+                        state.counter.toString(),
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
 
       floatingActionButton: Row(
